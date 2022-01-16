@@ -1,0 +1,104 @@
+* {
+  font-family: "Noto Sans TC", "Roboto Mono", serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+a,
+p,
+h1 {
+  font-family: "Noto Sans TC", "Roboto Mono", serif;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  list-style: none;
+}
+
+/*頁首*/
+.header {
+  background-color: rgb(211, 222, 220, 0.8);
+  width: 100%;
+  min-height: 3.25rem;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  padding-left: rem;
+}
+
+.Main {
+  display: flex;
+}
+
+.MenuBox {
+  min-width: 305px;
+  height: 120vh;
+  background-color: rgb(146, 169, 189, 0.2);
+  transition: all 0.4s ease-in-out;
+}
+
+.TodoBox {
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  transition: all 0.4s ease-in-out;
+}
+
+.area {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+.humburger {
+  margin-left: 0.5rem;
+}
+
+.header-menu-toggle {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: transparent;
+  border-color: rgb(255, 255, 255, 8);
+  border: none;
+  cursor: pointer;
+  margin: 0.3rem 0.25rem 0 0.25rem;
+  align-items: center;
+}
+
+.paddingP {
+  padding: 0.4rem 0.8rem;
+}
+
+.humburger-icon {
+  width: 2rem;
+  height: 2rem;
+  color: rgb(146, 169, 189);
+}
+
+.header-menu-toggle:hover {
+  background-color: rgb(124, 153, 172, 0.45);
+}
+
+.home {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: transparent;
+  border-color: rgb(255, 255, 255, 8);
+  border: none;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  align-items: center;
+}
+
+.homeIcon {
+  font-size: 2rem;
+  color: rgb(146, 169, 189);
+}
+
+.homeIcon:hover {
+  background-color: rgb(124, 153, 172, 0.45);
+}

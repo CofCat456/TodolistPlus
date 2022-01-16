@@ -1,0 +1,257 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/*Menu*/
+.select {
+  margin: 3rem 0 0 3rem;
+  height: 100vh;
+}
+
+.all,
+.complete,
+.uncomplete {
+  font-size: 1.2rem;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  border: none;
+  text-align: left;
+  transition: 1s;
+  transition-timing-function: ease-in-out;
+}
+
+.all:hover,
+.complete:hover,
+.uncomplete:hover {
+  background-color: rgb(124, 153, 172, 0.6);
+}
+
+.open {
+  visibility: visible;
+  position: relative;
+  left: 0;
+}
+
+.close {
+  visibility: hidden;
+  position: relative;
+  left: -450px;
+}
+
+.tagIcon {
+  margin-right: 0.5rem;
+}
+
+/*編輯區域*/
+.eDitHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 35px 55px 0 55px;
+}
+
+.eDit {
+  display: flex;
+  max-width: 100%;
+  margin: 0 auto 0;
+}
+
+.eDitTitle {
+  font-size: 1.5rem;
+}
+
+.eDitText {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 0.5rem;
+}
+
+.dateIcon {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  width: 2rem;
+  font-size: 1.8rem;
+}
+
+.eDitBox {
+  max-width: 900px;
+  margin: 0.5rem auto;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.eDitTextarea {
+  padding: 10px;
+  min-width: 100%;
+  min-height: 20vh;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid rgba(204, 204, 204, 0.6);
+  resize: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.eDitTextarea input {
+  margin: 0.25rem 0;
+  height: 2rem;
+  font-size: 1rem;
+  border: none;
+  caret-color: auto;
+  caret-color: transparent;
+  outline: none;
+}
+
+.eDitButton {
+  margin: 0.5rem 0;
+}
+
+.eDitButton button {
+  cursor: pointer;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 400;
+  min-width: 80px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 980px;
+  color: #fff;
+  margin: 0 0.3rem;
+  border: none;
+}
+
+.eDitAdd {
+  background-color: rgba(221, 28, 28, 0.6);
+}
+
+.eDitDelete {
+  background-color: rgb(136, 136, 136, 0.8);
+}
+
+.addEdit {
+  display: flex;
+  cursor: pointer;
+  margin: 1rem 2rem;
+}
+
+.addIcon {
+  font-size: 2rem;
+  color: rgb(79, 189, 186, 0.5);
+  margin-right: 0.5rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.addText {
+  font-size: 1.35rem;
+  color: rgb(0, 0, 0, 0.4);
+  transition: all 0.1s ease-in-out;
+}
+
+.addEdit:hover .addIcon {
+  color: rgb(79, 189, 186);
+}
+.addEdit:hover .addText {
+  color: rgb(230, 9, 101);
+}
+
+.zoomIn {
+  position: relative;
+  left: -175px;
+}
+
+.zoomOut {
+  position: relative;
+  left: 0px;
+}
+
+/*刪除*/
+.deleteBtn {
+  border: none;
+  background-color: transparent;
+}
+
+.deleteIcon {
+  font-size: 1.5rem;
+  color: rgb(136, 136, 136);
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+}
+
+.deleteIcon:hover {
+  transform: scale(1.2);
+}
+
+/*item*/
+
+.item {
+  max-width: 900px;
+  height: 6vh;
+  margin: 1rem 2rem;
+  padding-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.item::before {
+  content: "";
+}
+
+.checkBtn {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.4s ease-in-out;
+}
+
+.checkBtn:hover {
+  filter: brightness(60%);
+}
+
+.checkIcon {
+  visibility: hidden;
+  height: 5px;
+  width: 15px;
+  border: none;
+  transition: 0.4s ease-in-out;
+  opacity: 0;
+  background-color: white;
+}
+
+.checkBtn:hover .checkIcon {
+  visibility: visible;
+  opacity: 1;
+}
+
+.completed {
+  color: gray;
+  text-decoration: line-through;
+}
+
+.listText {
+  width: 90%;
+}
