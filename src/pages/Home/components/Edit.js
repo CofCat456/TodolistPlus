@@ -30,7 +30,7 @@ const Edit = ({
 
   return (
     <div>
-      <div>
+      <div className="inputArea">
         <div className={`eDitBox ${editTextToggle}`}>
           <div className="eDitTextarea">
             <input
