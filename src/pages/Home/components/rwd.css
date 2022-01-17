@@ -1,0 +1,62 @@
+@media screen and (max-width: 1270px) {
+  .TodoBox {
+    min-width: 360px;
+  }
+  .rwdopen {
+    visibility: visible;
+  }
+  .rwdclose {
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .TodoBox {
+    min-width: 360px;
+    z-index: 1;
+  }
+  .eDitBox{
+    margin: 0.5rem 1.5rem;
+  }
+  .MenuBox {
+    position: absolute;
+    z-index: 200;
+    background-color: rgb(146, 169, 189);
+    transition: all 0.2s ease-in-out;
+  }
+  .zoomIn {
+    position: relative;
+    left: 0px;
+  }
+  .zoomOut {
+    filter: brightness(80%);
+  }
+  .rwdopen {
+    visibility: visible;
+  }
+  .rwdclose {
+    visibility: hidden;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .MenuBox {
+    width: 300px;
+  }
+  .checkBtn {
+    width: 20px;
+    height: 20px;
+  }
+  .checkIcon {
+    width: 12px;
+  }
+  .deleteBtn {
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+}
+
+@media screen and (max-width: 320px) {
+}
