@@ -17,6 +17,10 @@ code {
   height: 100vh;
 }
 
+.select button{
+  color: rgb(0, 0, 0);
+}
+
 .all,
 .complete,
 .uncomplete {
@@ -86,7 +90,7 @@ code {
 }
 
 .eDitBox {
-  max-width: 900px;
+  max-width: 700px;
   margin: 0.5rem auto;
 }
 
@@ -100,7 +104,6 @@ code {
 
 .eDitTextarea {
   padding: 10px;
-  min-width: 100%;
   min-height: 20vh;
   line-height: 1.5;
   border-radius: 5px;
