@@ -6,57 +6,53 @@ const Edit = ({
   todos,
   setTodos,
   editToggled,
-  setEditToggled,
-  addToggled,
-  setAddToggled,
 }) => {
+  var space = new Set();
+
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
+    console.log(e.target.value);
   };
 
   const submitTodoHandler = (e) => {
     e.preventDefault();
-    setTodos([...todos, { text: inputText, completed: false, id: v4() }]);
-    setInputText("");
-  };
-
-  const editTextSwitch = (e) => {
-    setEditToggled(!editToggled);
-    setAddToggled(!addToggled);
+    for (let i = 0; i < inputText.length; i++) {
+      space.add(inputText.charAt(i));
+    }
+    if (space.size <= 1 && space.has(" ")) {
+      alert("你只有輸入空白");
+      setInputText("");
+      console.log(space);
+      space.clear();
+    } else {
+      setTodos([...todos, { text: inputText, completed: false, id: v4() }]);
+      setInputText("");
+      console.log(space);
+      space.clear();
+    }
   };
 
   const editTextToggle = editToggled ? "show" : "hidden";
-  const addEditToggle = addToggled ? "show" : "hidden";
 
   return (
-    <div>
+    <div className="Area">
       <div className="inputArea">
         <div className={`eDitBox ${editTextToggle}`}>
-          <div className="eDitTextarea">
-            <input
-              type="text"
-              onChange={inputTextHandler}
-              placeholder="想寫些什麼?"
-              value={inputText}
-            />
-          </div>
-          <div className="eDitButton">
-            <button
-              className="eDitAdd"
-              type="submit"
-              onClick={submitTodoHandler}
-              disabled={inputText !== "" ? false : true}
-            >
-              添加
-            </button>
-            <button className="eDitDelete" onClick={editTextSwitch}>
-              取消
-            </button>
-          </div>
-        </div>
-        <div className={`addEdit ${addEditToggle}`} onClick={editTextSwitch}>
-          <i className="addIcon fas fa-folder-plus" />
-          <span className="addText">添加代辦事項</span>
+          <input
+            className="eDitInput"
+            type="text"
+            onChange={inputTextHandler}
+            placeholder="  想寫些什麼?"
+            value={inputText}
+          />
+          <button
+            className="eDitAdd"
+            type="submit"
+            onClick={submitTodoHandler}
+            disabled={inputText !== "" ? false : true}
+          >
+            加入
+          </button>
         </div>
       </div>
     </div>

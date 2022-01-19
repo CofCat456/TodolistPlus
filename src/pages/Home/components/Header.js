@@ -1,26 +1,15 @@
-const Headers = ({
-  switchToggled,
-  setSwitchToggled,
-  setStatus,
-  setEditToggled,
-  setAddToggled,
-  setRwdSwitchToggled,
-}) => {
+const Headers = ({ switchToggled, setSwitchToggled, setStatus }) => {
+  const menuToggle = switchToggled ? "close" : "open";
+
   const ToggleSwitch = () => {
     setSwitchToggled(!switchToggled);
-    if (switchToggled === true) {
-      setRwdSwitchToggled(true);
-    }
+    console.log(switchToggled);
   };
 
   const statusHandler = (e) => {
     console.log(e.currentTarget.value);
     setStatus(e.currentTarget.value);
-
-    if (e.currentTarget.value === "all") {
-      setEditToggled(false);
-      setAddToggled(true);
-    }
+    setSwitchToggled(!switchToggled);
   };
 
   return (
@@ -41,9 +30,31 @@ const Headers = ({
             </svg>
           </button>
         </div>
-        <button className="home" value="all" onClick={statusHandler}>
-          <i className="homeIcon fas fa-home"></i>
-        </button>
+        <div className={`select ${menuToggle}`}>
+          <div className="job">
+            <h4 className="jobHeader">工作區</h4>
+            <button className="all" value="all" onClick={statusHandler}>
+              <i className="tagIcon fas fa-tag" />
+              總覽
+            </button>
+            <button
+              className="complete"
+              value="complete"
+              onClick={statusHandler}
+            >
+              <i className="tagIcon fas fa-tag" />
+              已完成
+            </button>
+            <button
+              className="uncomplete"
+              value="uncomplete"
+              onClick={statusHandler}
+            >
+              <i className="tagIcon fas fa-tag" />
+              未完成
+            </button>
+          </div>
+        </div>
       </header>
     </div>
   );

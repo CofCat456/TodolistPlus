@@ -1,7 +1,8 @@
-const EditHeader = () => {
+const EditHeader = ({ time }) => {
   var day = new Date();
   var week = day.getUTCDay();
-
+  var month = day.getMonth() + 1;
+  var date = day.getDate();
   switch (week.toString()) {
     case "0":
       week = "禮拜日";
@@ -25,13 +26,15 @@ const EditHeader = () => {
       week = "禮拜六";
       break;
   }
+
   return (
     <div>
       <header className="eDitHeader">
         <div className="eDit">
           <i className="dateIcon fas fa-calendar-alt"></i>
-          <h1 className="eDitTitle">Today</h1>
-          <p className="eDitText">{week + day.toLocaleTimeString()}</p>
+          <h1 className="eDitTitle">{`Today ${month}月${date}日 ${week}`}</h1>
+          <i className="clockIcon fas fa-clock"></i>
+          <p className="eDitText">{time}</p>
         </div>
       </header>
     </div>

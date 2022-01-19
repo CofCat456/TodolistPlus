@@ -1,24 +1,46 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 /*Menu*/
 .select {
-  margin: 3rem 0 0 3rem;
-  height: 100vh;
+  position: absolute;
+  margin: 0;
+  inset: 0 0 auto auto;
+  transform: translate(180px, 50px);
+  color: rgb(79, 189, 186);
 }
 
-.select button{
-  color: rgb(0, 0, 0);
+.job {
+  background: #2d3748;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.4) 0px 5px 40px;
+  min-width: 14rem;
+  padding: 1rem;
+  border-radius: 0.8rem;
+}
+
+.jobHeader {
+  font-size: 1.2rem;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.open {
+  visibility: visible;
+}
+
+.close {
+  visibility: hidden;
 }
 
 .all,
@@ -31,26 +53,14 @@ code {
   background-color: transparent;
   border: none;
   text-align: left;
-  transition: 1s;
-  transition-timing-function: ease-in-out;
+  color: rgb(79, 189, 186);
 }
 
 .all:hover,
 .complete:hover,
 .uncomplete:hover {
-  background-color: rgb(124, 153, 172, 0.6);
-}
-
-.open {
-  visibility: visible;
-  position: relative;
-  left: 0;
-}
-
-.close {
-  visibility: hidden;
-  position: relative;
-  left: -450px;
+  background-color: rgb(7, 34, 39, .4);
+  border-radius: 20px;
 }
 
 .tagIcon {
@@ -61,24 +71,36 @@ code {
 .eDitHeader {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  padding: 35px 55px 0 55px;
+  align-items: center;
+  vertical-align: middle;
+  justify-content: center;
+}
+
+.clockIcon {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  width: 2rem;
+  font-size: 1.8rem;
 }
 
 .eDit {
   display: flex;
   max-width: 100%;
   margin: 0 auto 0;
+  color: azure;
 }
 
 .eDitTitle {
   font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 1rem;
 }
 
 .eDitText {
   display: flex;
-  align-items: flex-end;
-  margin-left: 0.5rem;
+  align-items: center;
+  font-size: 1.5rem;
 }
 
 .dateIcon {
@@ -89,62 +111,42 @@ code {
   font-size: 1.8rem;
 }
 
+.inputArea {
+  width: 100%;
+}
+
 .eDitBox {
-  max-width: 700px;
+  width: 100%;
   margin: 0.5rem auto;
-}
-
-.show {
-  display: block;
-}
-
-.hidden {
-  display: none !important;
-}
-
-.eDitTextarea {
-  padding: 10px;
-  min-height: 20vh;
-  line-height: 1.5;
-  border-radius: 5px;
-  border: 1px solid rgba(204, 204, 204, 0.6);
-  resize: none;
   display: flex;
-  flex-direction: column;
 }
 
-.eDitTextarea input {
-  margin: 0.25rem 0;
-  height: 2rem;
-  font-size: 1rem;
-  border: none;
-  caret-color: auto;
-  caret-color: transparent;
+.eDitInput {
   outline: none;
-}
-
-.eDitButton {
-  margin: 0.5rem 0;
-}
-
-.eDitButton button {
-  cursor: pointer;
-  text-align: center;
-  font-size: 17px;
-  font-weight: 400;
-  min-width: 80px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-radius: 980px;
-  color: #fff;
-  margin: 0 0.3rem;
-  border: none;
+  width: 85%;
+  padding: 15px;
+  margin-right: 25px;
+  font-size: 20px;
+  color: #ccc;
+  background-color: #000000;
+  border: 1px solid #c89666;
+  border-radius: 10px;
 }
 
 .eDitAdd {
-  background-color: rgba(221, 28, 28, 0.6);
+  width: 100px;
+  height: 5vh;
+  padding: 15px 15px;
+  font-size: 20px;
+  border-radius: 40px;
+  border: 0;
+  background-color: #f1af71;
+  cursor: pointer;
+}
+
+button[disabled] {
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .eDitDelete {
@@ -177,84 +179,77 @@ code {
   color: rgb(230, 9, 101);
 }
 
-.zoomIn {
-  position: relative;
-  left: -175px;
-}
-
-.zoomOut {
-  position: relative;
-  left: 0px;
-}
-
-/*刪除*/
-.deleteBtn {
-  border: none;
-  background-color: transparent;
-}
-
-.deleteIcon {
-  font-size: 1.5rem;
-  color: rgb(136, 136, 136);
-  transition: all 0.5s ease-out;
-  cursor: pointer;
-}
-
-.deleteIcon:hover {
-  transform: scale(1.2);
-}
-
 /*item*/
-
 .item {
-  max-width: 900px;
+  max-width: 100%;
   height: 6vh;
-  margin: 1rem 2rem;
-  padding-bottom: 1rem;
+  border: none;
+  margin: 1rem;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgb(240, 240, 240);
+  background-color: #12343b;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  color: white;
 }
 
 .item::before {
   content: "";
 }
 
+/*確定*/
 .checkBtn {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 1px solid;
   margin: 0 0.5rem;
   cursor: pointer;
-  background-color: white;
-  transition: all 0.4s ease-in-out;
-}
-
-.checkBtn:hover {
-  filter: brightness(60%);
+  border: none;
+  background-color: transparent;
 }
 
 .checkIcon {
-  visibility: hidden;
-  height: 5px;
-  width: 15px;
+  font-size: 2rem;
   border: none;
-  transition: 0.4s ease-in-out;
-  opacity: 0;
-  background-color: white;
+  color: #ce2424;
 }
 
-.checkBtn:hover .checkIcon {
-  visibility: visible;
-  opacity: 1;
+/*編輯*/
+.editBtn {
+  margin: 0 0.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.editIcon {
+  font-size: 2rem;
+  padding-bottom: 1.5px;
+  border: none;
+  transition: 0.4s ease-in-out;
+  color: #15d8df;
+}
+
+/*刪除*/
+.deleteBtn {
+  margin: 0 1rem 0 0.5rem;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.deleteIcon {
+  font-size: 2rem;
+  border: none;
+  transition: 0.4s ease-in-out;
+  color: rgb(135, 100, 69);
 }
 
 .completed {
-  color: gray;
+  color: rgb(90, 84, 84);
   text-decoration: line-through;
 }
 
 .listText {
   width: 90%;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 }

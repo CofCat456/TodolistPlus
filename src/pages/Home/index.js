@@ -2,7 +2,6 @@ import Edit from "./components/Edit";
 import List from "./components/List";
 import EditHeader from "./components/EditHeader";
 import Headers from "./components/Header";
-import Menu from "./components/Menu";
 import "./index.css";
 import "./components/components.css";
 import "./components/rwd.css";
@@ -13,18 +12,14 @@ const Home = () => {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [switchToggled, setSwitchToggled] = useState(true);
-  const [rwdSwitchToggled, setRwdSwitchToggled] = useState(true);
   const [addToggled, setAddToggled] = useState(true);
-  const [editToggled, setEditToggled] = useState(false);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-
-  const menuToggle = switchToggled ? "close" : "open";
-  const editToggle = switchToggled ? "zoomIn" : "zoomOut";
-  const rwdmenuToggle = rwdSwitchToggled ? "rwdopen" : "rwdclose";
+  const [time, setTime] = useState();
 
   useEffect(() => {
     getLocalTodos();
+    timetick();
   }, []);
 
   useEffect(() => {
@@ -60,45 +55,40 @@ const Home = () => {
     }
   };
 
+  const timetick = () => {
+    var day = new Date();
+    setTime(day.toLocaleTimeString());
+  };
+
+  setInterval(timetick, 1000);
+
   return (
     <>
-      <Headers
-        switchToggled={switchToggled}
-        setSwitchToggled={setSwitchToggled}
-        setStatus={setStatus}
-        setAddToggled={setAddToggled}
-        setEditToggled={setEditToggled}
-        setRwdSwitchToggled={setRwdSwitchToggled}
-        setSwitchToggled={setSwitchToggled}
-      />
       <div className="Main">
-        <div className={`MenuBox ${menuToggle} ${rwdmenuToggle}`}>
-          <Menu
-            setSwitchToggled={setSwitchToggled}
-            setStatus={setStatus}
-            setAddToggled={setAddToggled}
-            setEditToggled={setEditToggled}
-            rwdSwitchToggled={rwdSwitchToggled}
-            setRwdSwitchToggled={setRwdSwitchToggled}
-          />
-        </div>
-        <div className={`TodoBox ${editToggle}`}>
+        <div className="TodoBox">
           <div className="area">
-            <EditHeader />
-            <List
-              todos={todos}
-              setTodos={setTodos}
-              filteredTodos={filteredTodos}
-            />
+            <div className="toparea">
+              <Headers
+                switchToggled={switchToggled}
+                setSwitchToggled={setSwitchToggled}
+                setStatus={setStatus}
+                setAddToggled={setAddToggled}
+                setSwitchToggled={setSwitchToggled}
+              />
+              <EditHeader time={time} />
+            </div>
             <Edit
               todos={todos}
               setTodos={setTodos}
               inputText={inputText}
               setInputText={setInputText}
-              editToggled={editToggled}
-              setEditToggled={setEditToggled}
               addToggled={addToggled}
               setAddToggled={setAddToggled}
+            />
+            <List
+              todos={todos}
+              setTodos={setTodos}
+              filteredTodos={filteredTodos}
             />
           </div>
         </div>
